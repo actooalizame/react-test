@@ -3,8 +3,9 @@ TasksList = React.createClass({
 	mixins: [ReactMeteorData],
 
 	getMeteorData(){
+		Meteor.subscribe('allTasks');
 		return {
-			tasks: Tasks.find({}).fetch()
+			tasks: Tasks.find({},{sort:{createdAt:-1}}).fetch()
 		}
 	},
 
@@ -15,10 +16,14 @@ TasksList = React.createClass({
 	},
 
 	render(){
-		return(	
-			<ul className="tasks">
-				{this.renderTasks()}
-			</ul>
+		return(
+			<div className="row">
+				<div className="col-sm-8 col-sm-offset-2">
+					<ul className="list-group">
+						{this.renderTasks()}
+					</ul>
+				</div>
+			</div>
 		)
 	}
 });
