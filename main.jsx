@@ -4,7 +4,8 @@ MainLayout = React.createClass({
 		  <div>
 		    <Header />
 		    <div className="container">
-		    	<AddTask />
+			    <UserControl />
+			    <hr/>
 		    	{this.props.content}
 		    </div>
 		    <Footer />

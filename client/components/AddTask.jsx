@@ -8,15 +8,11 @@ AddTask = React.createClass({
 
 	render(){
 		return(
-			<div className="row center-block">
-				<div className="col-sm-6 col-sm-offset-3">
-					<form className="new-task" onSubmit={this.handleSubmit}>
-						<div className="form-group">
-							<input className="form-control" type="text" ref="addTask" placeholder="Add Task"/>
-						</div>
-					</form>
+			<form className="new-task" onSubmit={this.handleSubmit}>
+				<div className="form-group">
+					<input className="form-control" type="text" ref="addTask" placeholder="Add Task"/>
 				</div>
-			</div>
+			</form>
 			)
 	}
 });

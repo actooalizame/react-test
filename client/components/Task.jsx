@@ -6,24 +6,33 @@ Task = React.createClass({
   },
 
   ToggleCompleted(){
-  	var taskId = this.props.task._id;
+  	let taskId = this.props.task._id;
   	this.props.task.completed ? Meteor.call('unDoneTask', taskId) : Meteor.call('doneTask', taskId)
  
   },
 
+  RemoveTask(){
+  	let taskId = this.props.task._id;
+  	Meteor.call('removeTask', taskId)
+  },
+
 	render(){
-		const btnClassName = this.props.task.completed ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success';
+		let taskProps = this.props.task.completed;
+		let btnIcon = taskProps ? 'glyphicon glyphicon-plus' : 'glyphicon glyphicon-ok';
+		const btnClassName = taskProps  ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success';
 		return(
 			<li className="list-group-item">
-					<div className="row">
-						<div className="col-sm-10">
-							<h4>{this.props.task.text}</h4>
-						</div>
-						<div className="col-sm-2">
-							<button className={btnClassName} type="button" onClick={this.ToggleCompleted}>Ok</button>
-						</div>
+				<div className="row">
+					<div className="col-md-10 col-sm-9 col-xs-8">
+						<h4>{this.props.task.text}</h4>
 					</div>
-				
+					<div className="col-xs-1">
+						<button className={btnClassName} type="button" onClick={this.ToggleCompleted}><span className={btnIcon} aria-hidden="true"></span></button>
+					</div>
+					<div className="col-xs-1">
+						<button className="btn btn-sm btn-default" type="button" onClick={this.RemoveTask}><span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+					</div>
+				</div>
 			</li>
 
 		)

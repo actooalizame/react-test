@@ -18,4 +18,9 @@ Meteor.methods({
       {$set: {completed:false}}
     );
   },
+  'removeTask': function(taskId){
+    Tasks.remove(taskId);
+  },
 });
+
+

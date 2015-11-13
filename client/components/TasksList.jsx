@@ -3,11 +3,13 @@ TasksList = React.createClass({
 	render(){
 		return(
 			<div>
-				<h3>Pending</h3>
+				<h2 className="text-center">Pending</h2>
 				<IncompleteTasks />
 				<hr/>
-				<h3>Done</h3>
-				<CompletedTasks />
+				<div className="completed">
+					<h2 className="text-center">Done</h2>
+					<CompletedTasks />
+				</div>
 			</div>
 		)
 	}

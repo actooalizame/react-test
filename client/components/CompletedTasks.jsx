@@ -5,6 +5,7 @@ CompletedTasks = React.createClass({
 		Meteor.subscribe('doneTasks');
 		return {
 			tasks: Tasks.find({completed:true},{sort:{createdAt:-1}}).fetch()
+			
 		}
 	},
 
