@@ -8,5 +8,8 @@ Meteor.publish('completedTasks', function(){
 
 Meteor.publish('singleTask', function(taskId){
 	return  Tasks.find({_id:taskId});
+});
 
+Meteor.publish('taskComments', function(taskId){
+	return  Comments.find({taskId:taskId});
 });
