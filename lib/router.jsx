@@ -5,6 +5,12 @@ FlowRouter.route('/', {
 	}
 });
 
+FlowRouter.route('/:taskId', {
+	action(params){
+		ReactLayout.render(SingleLayout, {content: <SingleTask {...params} />});
+	}
+});
+
 FlowRouter.route('/gracias', {
 	name: 'thanks',
 	action(){

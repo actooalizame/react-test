@@ -2,7 +2,7 @@ IncompleteTasks = React.createClass({
 	mixins: [ReactMeteorData],
 
 	getMeteorData(){
-		Meteor.subscribe('undoneTasks');
+		Meteor.subscribe('incompletedTasks');
 		return {
 			tasks: Tasks.find({completed:false},{sort:{createdAt:-1}}).fetch(),
 			incompleteCount: Tasks.find({completed:false}).count()

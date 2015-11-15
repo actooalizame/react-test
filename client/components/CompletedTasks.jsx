@@ -2,7 +2,7 @@ CompletedTasks = React.createClass({
 	mixins: [ReactMeteorData],
 
 	getMeteorData(){
-		Meteor.subscribe('doneTasks');
+		Meteor.subscribe('completedTasks');
 		return {
 			tasks: Tasks.find({completed:true},{sort:{createdAt:-1}}).fetch()
 			
